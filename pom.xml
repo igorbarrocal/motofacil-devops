@@ -86,6 +86,12 @@
         </dependency>
     </dependencies>
 
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>10.2.1.jre17</version>
+    </dependency>
+
     <build>
         <plugins>
             <plugin>
