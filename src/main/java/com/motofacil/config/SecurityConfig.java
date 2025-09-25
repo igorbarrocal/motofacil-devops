@@ -17,11 +17,16 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll() // Permitir acesso público às rotas de autenticação temporalmente
-                .requestMatchers("/api/user/**").permitAll() // Permitir acesso público às rotas de autenticação e usuário temporalmente
-                .requestMatchers("/api/location/**").permitAll() // Permitir acesso público às rotas de localização temporalmente
-                .requestMatchers("/api/patios/**").permitAll() // Permitir acesso público às rotas de pátios temporalmente
-                .requestMatchers("/api/motos/**").permitAll() // Permitir acesso público às rotas de motos temporalmente
+                // Permitir acesso público às rotas de autenticação, usuário, localização, pátios, motos
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/user/**").permitAll()
+                .requestMatchers("/api/location/**").permitAll()
+                .requestMatchers("/api/patios/**").permitAll()
+                .requestMatchers("/api/motos/**").permitAll()
+
+                // Permitir acesso público ao Swagger e à raiz do app
+                .requestMatchers("/", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+
                 .anyRequest().authenticated()
             );
         return http.build();
