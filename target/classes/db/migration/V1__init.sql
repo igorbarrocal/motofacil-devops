@@ -1,0 +1,18 @@
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    perfil VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE moto (
+    id SERIAL PRIMARY KEY,
+    placa VARCHAR(10) NOT NULL,
+    modelo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE patio (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
