@@ -10,7 +10,7 @@ az sql server firewall-rule create --resource-group motofacil-br-rg --server mot
 
 # Passo 5: Criar App Service Plan + App Service (Brasil)
 az appservice plan create --name motofacil-plan --resource-group motofacil-br-rg --sku B1 --is-linux --location brazilsouth
-az webapp create --resource-group motofacil-br-rg --plan motofacil-plan --name motofacil-app --runtime "JAVA|17-java11" --location brazilsouth
+az webapp create --resource-group motofacil-br-rg --plan motofacil-plan --name motofacil-app --runtime 'JAVA|17' --location brazilsouth
 
 # Passo 6: Configurar connection string do banco no App Service
 az webapp config connection-string set --name motofacil-app --resource-group motofacil-br-rg \
