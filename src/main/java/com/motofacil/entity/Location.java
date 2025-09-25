@@ -1,5 +1,6 @@
 package com.motofacil.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,7 @@ public class Location {
 
     @ManyToOne
     @JoinColumn(name = "moto_id")
+    @JsonBackReference // evita loop serializando a moto
     private Moto moto;
 
     @ManyToOne

@@ -1,5 +1,6 @@
 package com.motofacil.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -33,6 +34,7 @@ public class Moto {
     @ManyToOne
     private Patio patio;
 
-    @OneToOne
+    @OneToOne(mappedBy = "moto", cascade = CascadeType.ALL)
+    @JsonManagedReference // serializa a Location, evitando loop
     private Location location; // Última localização
 }
