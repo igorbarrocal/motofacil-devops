@@ -209,3 +209,13 @@ GET /api/motos/1/history
 - O App Service e o banco de dados devem estar ativos na nuvem no momento da correção.
 
 ---
++---------+      HTTPS      +----------------+     JDBC/ODBC     +------------------+
+| Usuário | <------------>  | Azure App      | <------------->   | Azure SQL        |
+|         |                 | Service        |                   | Database (PaaS)  |
++---------+                 +----------------+                   +------------------+
+        |                        ^   |                                  ^
+        |                        |   v                                  |
+        |                 +----------------+                      +------------------+
+        |                 | GitHub Actions |                      | Azure Storage    |
+        |                 | Azure DevOps   |                      | (opcional)       |
+        |                 +----------------+                      +------------------+
